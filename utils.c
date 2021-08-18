@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/18 10:48:24 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/08/18 10:57:03 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int    check_argv(int ac, char **av)
 	i = 0;
 	if (ac < 2)
 		return (0);
-	while (av[++i])
+	while (av[++i]) 
 	{
 		j = -1;
 		while (av[i][++j])
