@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/18 11:00:03 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/08/18 14:12:26 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ int    check_argv(int ac, char **av)
 	int j;
 	
 	i = 0;
-	if (ac < 2)
-		return (0);
-	while (av[++i]) 
+	if (ac == 1)
+		exit(0);
+	while (av[++i])
 	{
 		j = -1;
+		if (!ft_atoi(av[i]) && av[i][0] != '0')
+			return (0);
 		while (av[i][++j])
 			if (!ft_isdigit(av[i][j]))
 				return (0);

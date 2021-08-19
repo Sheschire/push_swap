@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:49:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/17 18:40:51 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/08/18 11:17:03 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <unistd.h>
 
 int    check_argv(int ac, char **av);
-
-
 
 
 
