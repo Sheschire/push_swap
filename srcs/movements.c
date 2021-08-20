@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 16:25:43 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/20 17:15:57 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/08/20 17:26:47 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ void	push(t_stack *src, t_stack *dst, char c)
 {
 	t_stack *tmp;
 
-	
+	tmp = src->n;
+	add_front(src, dst);
+	src = tmp;
 }
