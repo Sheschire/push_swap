@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/19 13:52:23 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/08/20 13:04:42 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,27 +40,28 @@ int    check_argv(int ac, char **av)
 	return (1);
 }
 
-int	init_stack(t_stack *s)
+void	_err(void)
 {
-	s->a = (t_list **)malloc(sizeof(t_list));
-	if (!s->a)
+	ft_putstr_fd("Error\n", 2);
+	exit(0);
+}
+
+int		init_stack(t_stack *a, t_stack *b, char **av)
+{
+	a = (t_stack *)malloc(sizeof(t_stack));
+	b = (t_stack *)malloc(sizeof(t_stack));
+	if (!a || !b)
 		return (0);
-	s->b = (t_list **)malloc(sizeof(t_list));
-	if (!s->b)
-		return (0);
-	s->a = 0;
-	s->b = 0;
+	a = 0;
+	b = 0;
 	return (1);
 }
 
-int	fill_a(t_stack *s, char **av)
+void	fill_a(t_stack *a, char **av)
 {
 	int	i;
 
-	i = 1;
-	while (av[i])
-	{
-		s->a.content = av[i];
-	}
-	return (1);
+	i = 0;
+	while (av[++i])
+		a->v = ft_atoi(av[i]);
 }
