@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:49:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/20 14:36:16 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/08/20 17:11:01 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,7 @@ void	fill_a(t_stack *a, char **av);
 void	_err(void);
 t_stack	*newstack(int v);
 void	print_stacks(t_stack *a, t_stack *b, int n);
+void	add_front(t_stack *new, t_stack *s);
+void	swap(t_stack *s, char c);
+void	push(t_stack *src, t_stack *dst, char c);
 #endif

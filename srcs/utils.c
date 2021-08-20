@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/20 15:04:28 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/08/20 16:18:50 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ void	print_stacks(t_stack *a, t_stack *b, int n)
 {
 	t_stack *tmp;
 	t_stack	*tmp2;
-	
+
 	tmp = 0;
 	tmp2 = 0;
-	if (n == 1)
+	if (n == 1 || n == 3)
 	{
 		tmp = a;
 		printf("A\n_\n\n")	;
@@ -74,33 +74,20 @@ void	print_stacks(t_stack *a, t_stack *b, int n)
 			a = a->n;
 		}
 		printf("_\n");
+		if (n == 3)
+			printf("\n---------------------------------------\n\n");
 	}
-	if (n == 2)
+	if (n == 2 || n == 3)
 	{
 		tmp = b;
 		printf("B\n_\n\n")	;
 		while (b)
 		{
-			printf("%d\n", b->v);
+			if (b->v)
+				printf("%d\n", b->v);
 			b = b->n;
 		}
 		printf("_\n");
-	}
-	if (n == 3)
-	{
-		tmp = a;
-		tmp2 = b;
-		printf("A          B\n");
-		printf("_          _\n\n");
-		while (a || b)
-		{
-			printf("%d", a->v);
-			printf("          %d\n", b->v);
-			a = a->n;
-			if (b->n)
-				b = b->n;
-		}
-		printf("_          _\n");
 	}
 }
 

@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 13:42:47 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/20 15:59:22 by tlemesle         ###   ########.fr       */
+/*   Created: 2021/08/20 16:25:43 by tlemesle          #+#    #+#             */
+/*   Updated: 2021/08/20 17:15:57 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack *newstack(int v)
+void	swap(t_stack *s, char c)
 {
-	t_stack	*new;
+	int	tmp;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (new == NULL)
-		return (0);
-	new->v = v;
-	new->n = NULL;
-	return (new);
+	if (s->n)
+	{
+		tmp = s->n->v;
+		s->n->v = s->v;
+		s->v = tmp;
+		if (c == 'a')
+			printf("sa\n");
+		if (c == 'b')
+			printf("sb\n");
+	}
 }
 
-void	add_front(t_stack *new, t_stack *s)
+void	push(t_stack *src, t_stack *dst, char c)
 {
-	if (new && s)
-	{
-		new->n = s;
-		s = new;
-	}
-} 
+	t_stack *tmp;
+
+	
+}

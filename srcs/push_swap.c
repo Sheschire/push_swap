@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:47:56 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/20 14:50:30 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/08/20 17:13:27 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int	main(int ac, char **av)
 	if (!init_stack(&a, &b, av))
 		_err();
 	fill_a(&a, av);
+	push(&a, &b, 'b');
 	print_stacks(&a, &b, 3);
 }
