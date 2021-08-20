@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 17:47:56 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/20 13:01:34 by tlemesle         ###   ########.fr       */
+/*   Created: 2021/08/20 13:42:47 by tlemesle          #+#    #+#             */
+/*   Updated: 2021/08/20 14:36:58 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int	main(int ac, char **av)
+t_stack *newstack(int v)
 {
-	t_stack	a;
-	t_stack	b;
-	
-	if (!check_argv(ac, av))
-		_err();
-	if (!init_stack(&a, &b, av))
-		_err();
-	fill_a(&a, av);
+	t_stack	*new;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (new == NULL)
+		return (0);
+	new->v = v;
+	new->n = NULL;
+	return (new);
 }
+
+//void	add_front(t_stack)

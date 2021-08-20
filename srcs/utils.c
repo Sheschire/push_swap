@@ -6,11 +6,11 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/08/20 13:10:02 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/08/20 15:04:28 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int    check_argv(int ac, char **av)
 {
@@ -57,11 +57,67 @@ int		init_stack(t_stack *a, t_stack *b, char **av)
 	return (1);
 }
 
+void	print_stacks(t_stack *a, t_stack *b, int n)
+{
+	t_stack *tmp;
+	t_stack	*tmp2;
+	
+	tmp = 0;
+	tmp2 = 0;
+	if (n == 1)
+	{
+		tmp = a;
+		printf("A\n_\n\n")	;
+		while (a)
+		{
+			printf("%d\n", a->v);
+			a = a->n;
+		}
+		printf("_\n");
+	}
+	if (n == 2)
+	{
+		tmp = b;
+		printf("B\n_\n\n")	;
+		while (b)
+		{
+			printf("%d\n", b->v);
+			b = b->n;
+		}
+		printf("_\n");
+	}
+	if (n == 3)
+	{
+		tmp = a;
+		tmp2 = b;
+		printf("A          B\n");
+		printf("_          _\n\n");
+		while (a || b)
+		{
+			printf("%d", a->v);
+			printf("          %d\n", b->v);
+			a = a->n;
+			if (b->n)
+				b = b->n;
+		}
+		printf("_          _\n");
+	}
+}
+
 void	fill_a(t_stack *a, char **av)
 {
-	int	i;
-
-	i = 0;
+	int		i;
+	t_stack	*tmp;
+	
+	i = 1;
+	tmp = a;
+	a->v = ft_atoi(av[i]);
 	while (av[++i])
-		a->v = ft_atoi(av[i]);
+	{
+		a->n = newstack(ft_atoi(av[i]));
+		a = a->n;
+	}
+	a = tmp;
 }
+
+

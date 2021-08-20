@@ -2,8 +2,9 @@ NAME	=	push_swap
 LIBDIR	=	./libft/
 LIBFT	=	libft.a
 
-SRCS	=	push_swap.c\
-			utils.c
+SRCS	=	./srcs/push_swap.c\
+			./srcs/utils.c\
+			./srcs/list_utils.c
 
 OBJS	=	$(SRCS:.c=.o)
 CC		=	gcc
