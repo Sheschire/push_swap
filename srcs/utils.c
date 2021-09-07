@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 14:20:13 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/07 14:30:36 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,7 @@ void	fill_a(t_stack **a, char **av)
 {
 	int		i;
 	t_stack *tmp;
-	
-	a = 0;
-	b = 0;
+
 	i = 0;
 	while (av[++i])
 	{
