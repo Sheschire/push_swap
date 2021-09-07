@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 14:54:28 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 15:16:11 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/07 18:26:16 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,25 @@ void	sort_three(t_stack **a, t_stack **b)
 	int	mid;
 	int	bot;
 	
-	
+	top = (*a)->pos;
+	mid = (*a)->n->pos;
+	bot = (*a)->n->n->pos;
+	if (top > mid && top < bot && mid < bot)
+		swap(a, "sa");
+	if (top > mid && top > bot && mid > bot)
+	{
+		swap(a, "sa");
+		reverse_rotate(a, "rra");
+	}
+	if (top > mid && top > bot && mid < bot)
+		rotate(a, "ra");
+	if (top < mid && top < bot && mid > bot)
+	{
+		swap(a, "sa");
+		rotate(a, "ra");
+	}
+	if (top < mid && top > bot && mid > bot)
+		reverse_rotate(a, "rra");
 }
 
 void    sort_stacks(t_stack **a, t_stack **b, int ac)
