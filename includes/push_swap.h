@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:49:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 14:30:42 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/07 17:19:11 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		check_argv(int ac, char **av);
 void	fill_a(t_stack **a, char **av);
 void	_err(void);
 void	print_stacks(t_stack **a, t_stack **b, int n);
+void	update_stack_index(t_stack **a, char **av, int ac);
 
 // LIST UTILS
 t_stack	*newnode(int v, int pos);
@@ -44,5 +45,8 @@ void	rotate(t_stack **s, char *move);
 void	rr(t_stack **a, t_stack **b);
 void    reverse_rotate(t_stack **s, char *move);
 void    rrr(t_stack **a, t_stack **b);
+
+// ALGO
+void    sort_stacks(t_stack **a, t_stack **b, int ac);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 14:30:36 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/07 17:43:38 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,19 @@ void	_err(void)
 	exit(0);
 }
 
+void	fill_a(t_stack **a, char **av)
+{
+	int		i;
+	t_stack *tmp;
+
+	i = 0;
+	while (av[++i])
+	{
+		tmp = newnode(ft_atoi(av[i]), i);
+		add_back(a, tmp);
+	}
+}
+
 void	print_stacks(t_stack **a, t_stack **b, int n)
 {
 	t_stack *tmp;
@@ -57,7 +70,7 @@ void	print_stacks(t_stack **a, t_stack **b, int n)
 		printf("A\n_\n\n")	;
 		while (tmp)
 		{
-			printf("%d\n", tmp->v);
+			printf("%d      index : %d\n", tmp->v, tmp->pos);
 			tmp = tmp->n;
 		}
 		printf("_\n");
@@ -71,22 +84,9 @@ void	print_stacks(t_stack **a, t_stack **b, int n)
 		while (tmp)
 		{
 			if (tmp->v)
-				printf("%d\n", tmp->v);
+				printf("%d      index : %d\n", tmp->v, tmp->pos);
 			tmp = tmp->n;
 		}
 		printf("_\n");
-	}
-}
-
-void	fill_a(t_stack **a, char **av)
-{
-	int		i;
-	t_stack *tmp;
-
-	i = 0;
-	while (av[++i])
-	{
-		tmp = newnode(ft_atoi(av[i]), i);
-		add_back(a, tmp);
 	}
 }

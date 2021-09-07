@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 17:47:56 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 17:41:02 by tlemesle         ###   ########.fr       */
+/*   Created: 2021/09/07 14:54:28 by tlemesle          #+#    #+#             */
+/*   Updated: 2021/09/07 15:16:11 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int ac, char **av)
+void	sort_three(t_stack **a, t_stack **b)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	top;
+	int	mid;
+	int	bot;
+	
+	
+}
 
-	a = 0;
-	b = 0;
-	if (!check_argv(ac, av))
-		_err();
-	fill_a(&a, av);
-	update_stack_index(&a, av, ac);
-	//sort_stacks(&a, &b, ac);
-	print_stacks(&a, &b, 3);
+void    sort_stacks(t_stack **a, t_stack **b, int ac)
+{
+	if (ac == 3)
+		if ((*a)->v > (*a)->n->v)
+			swap(a, "sa");
+	if (ac == 4)
+		sort_three(a, b);
 }

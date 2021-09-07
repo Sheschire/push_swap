@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 16:25:43 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 14:26:55 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/07 16:52:31 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ss(t_stack **a, t_stack **b)
 {
-	swap(a, "");
-	swap(b, "");
+	swap(a, NULL);
+	swap(b, NULL);
 	printf("ss\n");
 }
 
@@ -38,8 +38,8 @@ void	swap(t_stack **s, char *move)
 
 void	rr(t_stack **a, t_stack **b)
 {
-	rotate(a, "");
-	rotate(b, "");
+	rotate(a, NULL);
+	rotate(b, NULL);
 	printf("rr");
 }
 
@@ -61,7 +61,7 @@ void	push(t_stack **src, t_stack **dst, char *move)
 {
 	t_stack *tmp;
 
-	if ((*src)->n)
+	if (*src)
 	{
 		tmp = (*src)->n;
 		add_front(dst, *src);

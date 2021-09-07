@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 12:22:17 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 14:06:58 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/07 16:52:41 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void    rrr(t_stack **a, t_stack **b)
 {
-	reverse_rotate(a, "");
-	reverse_rotate(b, "");
+	reverse_rotate(a, NULL);
+	reverse_rotate(b, NULL);
 	printf("rrr\n");
 }
 void    reverse_rotate(t_stack **s, char *move)
