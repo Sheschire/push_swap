@@ -5,7 +5,8 @@ LIBFT	=	libft.a
 SRCS	=	srcs/push_swap.c\
 			srcs/utils.c\
 			srcs/list_utils.c\
-			srcs/movements.c
+			srcs/moves.c\
+			srcs/moves_rrr.c
 
 OBJS	=	$(SRCS:.c=.o)
 CC		=	gcc
