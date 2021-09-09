@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/09 14:09:12 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/09 16:11:08 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,17 +91,17 @@ void	print_stacks(t_stack **a, t_stack **b, int n)
 	}
 }
 
-void	rotate_push(t_stack **a, t_stack **b, int *dist)
+void	rotate_push(t_stack **a, t_stack **b, int dist, int dir)
 {
-	while(dist[0]-- > 0)
-	{
-		if (dist[1] == 0)
+	int	i;
+
+	i = -1;
+	if (dir == 1)
+		while (++i < dist)
 			rotate(a, "ra");
-		else if (dist[1] == 1)
+	if (dir == 0)
+		while (++i < dist + 1)
 			reverse_rotate(a, "rra");
-	}
-	if (dist[1] == 1)
-		reverse_rotate(a, "rra");
 	push(a, b, "pb");
 }
 
