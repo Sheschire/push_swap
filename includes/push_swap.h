@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:49:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 17:19:11 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/09 14:09:35 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ void	fill_a(t_stack **a, char **av);
 void	_err(void);
 void	print_stacks(t_stack **a, t_stack **b, int n);
 void	update_stack_index(t_stack **a, char **av, int ac);
+int		get_bulksize(int ac);
+void	rotate_push(t_stack **a, t_stack **b, int *dist);
 
 // LIST UTILS
 t_stack	*newnode(int v, int pos);
 void	add_back(t_stack **s, t_stack *new);
 void	add_front(t_stack **s, t_stack *new);
-
+t_stack	*getlast(t_stack *stack);
 // MOVES
 void	swap(t_stack **s, char *move);
 void	ss(t_stack **a, t_stack **b);
@@ -48,5 +50,7 @@ void    rrr(t_stack **a, t_stack **b);
 
 // ALGO
 void    sort_stacks(t_stack **a, t_stack **b, int ac);
+void	big_sort(t_stack **a, t_stack **b, int ac);
+void	sort_three(t_stack **a);
 
 #endif

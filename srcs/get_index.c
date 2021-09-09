@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:42:13 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 17:44:01 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/08 14:43:02 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ int		*create_sorted_tab(char **av, int ac)
 	
 	i = 0;
 	j = -1;
-	tab = (int *)malloc(sizeof(int) * (ac - 1));
+	tab = (int *)malloc(sizeof(int) * ac);
 	if (!tab)
 		return (0);
 	while (av[++i])
 		tab[++j] = ft_atoi(av[i]);
-	sort_int_tab(tab, ac - 1);
+	sort_int_tab(tab, ac);
 /*	i = -1;
 	while (++i < ac - 1)
 		printf("tab[%d] = %d\n", i, tab[i]);*/
@@ -60,7 +60,7 @@ void	update_stack_index(t_stack **a, char **av, int ac)
 
 	tmp = *a;
 	tab = create_sorted_tab(av, ac);
-	while (tmp && i < ac - 1)
+	while (tmp && i < ac)
 	{
 		i = 0;
 		while (tab[i] != tmp->v)

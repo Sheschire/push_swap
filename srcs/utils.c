@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 17:43:38 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/09 14:09:12 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int    check_argv(int ac, char **av)
 		if (!ft_atoi(av[i]) && av[i][0] != '0')
 			return (0);
 		while (av[i][++j])
-			if (!ft_isdigit(av[i][j]))
+			if (!ft_isdigit(av[i][j]) && av[i][j] != '-')
 				return (0);
 	}
 	i = 0;
@@ -89,4 +89,33 @@ void	print_stacks(t_stack **a, t_stack **b, int n)
 		}
 		printf("_\n");
 	}
+}
+
+void	rotate_push(t_stack **a, t_stack **b, int *dist)
+{
+	while(dist[0]-- > 0)
+	{
+		if (dist[1] == 0)
+			rotate(a, "ra");
+		else if (dist[1] == 1)
+			reverse_rotate(a, "rra");
+	}
+	if (dist[1] == 1)
+		reverse_rotate(a, "rra");
+	push(a, b, "pb");
+}
+
+int	get_bulksize(int ac)
+{
+	int	bulk_size;
+
+	if (ac >= 250)
+		bulk_size = (ac / 10);
+	if (ac >= 100 && ac < 250)
+		bulk_size = (ac / 6);
+	if (ac < 100 && ac > 10)
+		bulk_size = (ac / 3);
+	if (ac <= 10)
+		bulk_size = (ac / 2);
+	return (bulk_size);
 }

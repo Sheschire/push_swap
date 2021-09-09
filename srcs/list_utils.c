@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 13:42:47 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 14:20:05 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/08 14:42:45 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,13 @@ void	add_front(t_stack **s, t_stack *new)
 		new->n = *s;
 		*s = new;
 	}
+}
+
+t_stack	*getlast(t_stack *s)
+{
+	if (s == NULL)
+		return (0);
+	while (s->n)
+		s = s->n;
+	return (s);
 }
