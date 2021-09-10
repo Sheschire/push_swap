@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/10 12:13:45 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/10 13:49:45 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,21 @@ void	fill_a(t_stack **a, char **av)
 		tmp = newnode(ft_atoi(av[i]), i);
 		add_back(a, tmp);
 	}
+}
+
+int	get_bulksize(int ac)
+{
+	int	bulk_size;
+
+	if (ac >= 250)
+		bulk_size = (ac / 10);
+	if (ac >= 100 && ac < 250)
+		bulk_size = (ac / 6);
+	if (ac < 100 && ac > 10)
+		bulk_size = (ac / 3);
+	if (ac <= 10)
+		bulk_size = (ac / 2);
+	return (bulk_size);
 }
 
 void	print_stacks(t_stack **a, t_stack **b, int n)

@@ -9,7 +9,8 @@ SRCS	=	srcs/push_swap.c\
 			srcs/moves_rrr.c\
 			srcs/sort_stacks.c\
 			srcs/get_index.c\
-			srcs/big_sort.c
+			srcs/big_sort.c\
+			srcs/big_sort_utils.c
 
 OBJS	=	$(SRCS:.c=.o)
 CC		=	gcc

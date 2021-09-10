@@ -6,42 +6,13 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 12:58:07 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/10 12:23:10 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/10 14:10:05 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	copy_stack(t_stack **copy, t_stack **src)
-{
-	t_stack *tmp;
-	t_stack *node;
-
-	tmp = *src;
-	while (tmp)
-	{
-		node = newnode(tmp->v, tmp->pos);
-		add_back(copy, node);
-		tmp = tmp->n;
-	}
-}
-
-void	reverse_stack(t_stack **rev, t_stack **a)
-{
-	t_stack	*copy;
-	t_stack	*tmp;
-	
-	copy = 0;
-	copy_stack(&copy, a);
-	while (copy)
-	{
-		tmp = copy->n;
-		add_front(rev, copy);
-		copy = tmp;
-	}
-}
-
-int		check_bulk_range(t_stack **a, int start, int end, int ac)
+int		check_bulk_range(t_stack **a, int start, int end)
 {
 	t_stack	*tmp;
 	int	i;
@@ -58,42 +29,75 @@ int		check_bulk_range(t_stack **a, int start, int end, int ac)
 	return (-1);
 }
 
-void	push_bulks_in_b(int bulk_size, t_stack **rev, int ac)
+int		find_biggest(t_stack **s, int biggest)
 {
-	int	dist_up;
-	int	dist_down;
-	int	bulk_begin;
-	int	bulk_end;
+	t_stack	*tmp;
+	int	dist;
 	
-	bulk_begin = 0;
-	bulk_end = bulk_size;
+	tmp = *s;
+	dist = 0;
+	while (tmp)
+	{
+		if (tmp->pos == biggest)
+			return (dist);
+		tmp = tmp->n;
+		dist++;
+	}
+	return (-1);
+}
+
+void	push_bulks_in_b(t_stack **a, t_stack **b, t_bigsort *bs, t_stack **rev)
+{
 	while (*a)
 	{
-		dist_up = 0;
-		dist_down = 0;
-		while (dist_up != -1 && dist_down != -1)
+		bs->dist_up = 0;
+		bs->dist_down = 0;
+		while (bs->dist_up != -1 && bs->dist_down != -1)
 		{
-			reverse_stack(&rev, a);
-			dist_up = check_bulk_range(a, bulk_begin, bulk_end, ac);
-			dist_down = check_bulk_range(&rev, bulk_begin, bulk_end, ac);
-			if (dist_up <= dist_down && dist_down != -1 && dist_up != -1)
-				rotate_push(a, b, dist_up, 1);
-			if (dist_up > dist_down && dist_down != -1 && dist_up != -1)
-				rotate_push(a, b, dist_down, 0);
-			free_stack(&rev);
+			reverse_stack(rev, a);
+	 		bs->dist_up = check_bulk_range(a, bs->bulk_begin, bs->bulk_end);
+			bs->dist_down = check_bulk_range(rev, bs->bulk_begin, bs->bulk_end);
+	 		if (bs->dist_up <= bs->dist_down && bs->dist_down != -1 && bs->dist_up != -1)
+	 			rotate_push_to_b(a, b, bs->dist_up, 1);
+	 		if (bs->dist_up > bs->dist_down && bs->dist_down != -1 && bs->dist_up != -1)
+	 			rotate_push_to_b(a, b, bs->dist_down, 0);
+			free_stack(rev);
 		}
-		bulk_begin+= bulk_size;
-		bulk_end+= bulk_size;
+		bs->bulk_begin+= bs->bulk_size;
+		bs->bulk_end+= bs->bulk_size;
 	}
+}
+
+void	push_biggest_in_a(t_stack **a, t_stack **b, t_bigsort *bs, t_stack **rev)
+{
+	int	biggest;
+
+	biggest = bs->ac - 1;
+	while (biggest > 0)
+	{
+		bs->dist_up = 0;
+		bs->dist_down = 0;
+		reverse_stack(rev, b);
+		bs->dist_up = find_biggest(b, biggest);
+		bs->dist_down = find_biggest(rev, biggest);
+		if (bs->dist_up <= bs->dist_down)
+			rotate_push_to_a(a, b, bs->dist_up, 1);
+		if (bs->dist_up > bs->dist_down)
+			rotate_push_to_a(a, b, bs->dist_down, 0);
+		free_stack(rev);
+		biggest--;
+	}
+	push(b, a, "pa");
 }
 
 void	big_sort(t_stack **a, t_stack **b, int ac)
 {
-	int	bulk_size;
-	t_stack	*rev;
+	t_bigsort	bs;
+	t_stack		*rev;
 
 	rev = 0;
-	bulk_size = get_bulksize(ac);
-	push_bulks_in_b(bulk_size, &rev, ac);
-	print_stacks(a, b, 3);
+	init_bs(&bs, ac);
+	push_bulks_in_b(a, b, &bs, &rev);
+	push_biggest_in_a(a, b, &bs, &rev);
+//	print_stacks(a, b, 3);
 }
