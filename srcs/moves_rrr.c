@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 12:22:17 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 16:52:41 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/10 14:55:37 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,8 @@ void    reverse_rotate(t_stack **s, char *move)
 	}
 	add_front(s, to_add_front);
 	if (move)
-		printf("%s\n", move);
+	{
+		ft_putstr_fd(move, 1);
+		ft_putstr_fd("\n", 1);
+	}
 }

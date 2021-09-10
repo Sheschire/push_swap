@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 16:25:43 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/07 16:52:31 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/10 14:55:28 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	swap(t_stack **s, char *move)
 {
 	t_stack *tmp;
 	t_stack *tmp2;
-	
+
 	if (*s && (*s)->n)
 	{
 		tmp = *s;
@@ -32,7 +32,10 @@ void	swap(t_stack **s, char *move)
 		tmp2->n = tmp;
 		*s = tmp2;
 		if (move)
-			printf("%s\n", move);
+		{
+			ft_putstr_fd(move, 1);
+			ft_putstr_fd("\n", 1);
+		}
 	}
 }
 
@@ -53,7 +56,10 @@ void	rotate(t_stack **s, char *move)
 		add_back(s, *s);
 		*s = tmp;
 		if (move)
-			printf("%s\n", move);
+		{
+			ft_putstr_fd(move, 1);
+			ft_putstr_fd("\n", 1);
+		}
 	}
 }
 
@@ -66,6 +72,7 @@ void	push(t_stack **src, t_stack **dst, char *move)
 		tmp = (*src)->n;
 		add_front(dst, *src);
 		*src = tmp;
-		printf("%s\n", move);
+		ft_putstr_fd(move, 1);
+		ft_putstr_fd("\n", 1);
 	}
 }
