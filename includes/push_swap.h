@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:49:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/09 17:37:28 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/10 10:57:03 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_stack	*newnode(int v, int pos);
 void	add_back(t_stack **s, t_stack *new);
 void	add_front(t_stack **s, t_stack *new);
 t_stack	*getlast(t_stack *stack);
+void	free_stack(t_stack **s);
 
 // MOVES
 void	swap(t_stack **s, char *move);

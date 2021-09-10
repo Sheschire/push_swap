@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 13:42:47 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/08 14:42:45 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/10 10:56:51 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,21 @@ t_stack	*getlast(t_stack *s)
 	while (s->n)
 		s = s->n;
 	return (s);
+}
+
+void	free_stack(t_stack **s)
+{
+	t_stack	*tmp;
+	t_stack *copy;
+
+	if (!s)
+		return ;
+	copy = *s;
+	while (copy)
+	{
+		tmp = copy->n;
+		free(copy);
+		copy = tmp;
+	}
+	*s = NULL;
 }
