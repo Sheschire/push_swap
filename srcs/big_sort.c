@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 12:58:07 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/10 14:10:05 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/10 15:30:35 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,4 @@ void	big_sort(t_stack **a, t_stack **b, int ac)
 	init_bs(&bs, ac);
 	push_bulks_in_b(a, b, &bs, &rev);
 	push_biggest_in_a(a, b, &bs, &rev);
-//	print_stacks(a, b, 3);
 }
