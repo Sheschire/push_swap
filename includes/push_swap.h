@@ -6,17 +6,17 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:49:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/10 13:50:30 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/10 14:41:30 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct  		s_node
 {
@@ -41,6 +41,13 @@ void	fill_a(t_stack **a, char **av);
 void	_err(void);
 void	print_stacks(t_stack **a, t_stack **b, int n);
 void	update_stack_index(t_stack **a, char **av, int ac);
+
+// LIBFT UTILS
+void	ft_putstr_fd(char *s, int fd);
+int		ft_isdigit(int c);
+int		ft_atoi(const char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_strlen(const char *str);
 
 // LIST UTILS
 t_stack	*newnode(int v, int pos);

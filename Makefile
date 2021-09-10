@@ -1,6 +1,4 @@
 NAME	=	push_swap
-LIBDIR	=	./libft/
-LIBFT	=	libft.a
 
 SRCS	=	srcs/push_swap.c\
 			srcs/utils.c\
@@ -10,7 +8,8 @@ SRCS	=	srcs/push_swap.c\
 			srcs/sort_stacks.c\
 			srcs/get_index.c\
 			srcs/big_sort.c\
-			srcs/big_sort_utils.c
+			srcs/big_sort_utils.c\
+			srcs/libft_utils.c
 
 OBJS	=	$(SRCS:.c=.o)
 CC		=	gcc
@@ -22,18 +21,15 @@ RM		=	rm -f
 	$(CC) -I. -o $@ -c $? $(FLAGS)
 
 $(NAME)		:	$(OBJS)
-		make all -C $(LIBDIR)
-		$(CC) $(OBJS) $(LIBDIR)/$(LIBFT) -o $(NAME)
+		$(CC) $(OBJS) -o $(NAME)
 
 all		:	$(NAME)
 
 fclean	:	clean
 		$(RM) $(NAME)
-		make fclean -C $(LIBDIR)
 
 clean	:
 		$(RM) $(OBJS)
-		make clean -C $(LIBDIR)
 
 re		:	fclean all
 

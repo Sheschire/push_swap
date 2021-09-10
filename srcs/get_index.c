@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:42:13 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/08 14:43:02 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/10 14:34:50 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,6 @@ int		*create_sorted_tab(char **av, int ac)
 	while (av[++i])
 		tab[++j] = ft_atoi(av[i]);
 	sort_int_tab(tab, ac);
-/*	i = -1;
-	while (++i < ac - 1)
-		printf("tab[%d] = %d\n", i, tab[i]);*/
 	return (tab);
 }
 
