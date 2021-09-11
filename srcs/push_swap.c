@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:47:56 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/11 02:47:06 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/11 03:02:08 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-
+ 
 	a = 0;
 	b = 0;
 	if (!check_argv(ac, av))
