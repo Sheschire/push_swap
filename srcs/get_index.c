@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:42:13 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/10 14:34:50 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/11 02:47:01 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	update_stack_index(t_stack **a, char **av, int ac)
 	t_stack *tmp;
 
 	tmp = *a;
+	i = 0;
 	tab = create_sorted_tab(av, ac);
 	while (tmp && i < ac)
 	{
