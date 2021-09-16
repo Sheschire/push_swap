@@ -17,7 +17,7 @@ void	sort_three(t_stack **a)
 	int	top;
 	int	mid;
 	int	bot;
-	
+
 	top = (*a)->pos;
 	mid = (*a)->n->pos;
 	bot = (*a)->n->n->pos;
