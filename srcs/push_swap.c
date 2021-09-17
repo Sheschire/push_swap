@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 		_err();
 	fill_a(&a, av);
 	update_stack_index(&a, av, ac - 1);
+	is_sorted(&a, &b);
 	sort_stacks(&a, &b, ac - 1);
-//	print_stacks(&a, &b, 3);
 	free_stack(&a);
 }

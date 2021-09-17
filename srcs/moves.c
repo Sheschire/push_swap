@@ -12,13 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-void	ss(t_stack **a, t_stack **b)
-{
-	swap(a, NULL);
-	swap(b, NULL);
-	printf("ss\n");
-}
-
 void	swap(t_stack **s, char *move)
 {
 	t_stack *tmp;
@@ -39,11 +32,32 @@ void	swap(t_stack **s, char *move)
 	}
 }
 
-void	rr(t_stack **a, t_stack **b)
+void    reverse_rotate(t_stack **s, char *move)
 {
-	rotate(a, NULL);
-	rotate(b, NULL);
-	printf("rr");
+	t_stack *last;
+	t_stack *to_add_front;
+	
+	last = *s;
+	to_add_front = 0;
+	while (last->n)
+	{
+		if (last->n)
+		{
+			if (last->n->n == NULL)
+			{
+				to_add_front = last->n;
+				last->n = NULL;
+			}
+		}
+		if (last->n)
+			last = last->n;
+	}
+	add_front(s, to_add_front);
+	if (move)
+	{
+		ft_putstr_fd(move, 1);
+		ft_putstr_fd("\n", 1);
+	}
 }
 
 void	rotate(t_stack **s, char *move)

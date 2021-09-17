@@ -41,6 +41,7 @@ void	fill_a(t_stack **a, char **av);
 void	_err(void);
 void	print_stacks(t_stack **a, t_stack **b, int n);
 void	update_stack_index(t_stack **a, char **av, int ac);
+int		is_sorted(t_stack **a, t_stack **b);
 
 // LIBFT UTILS
 void	ft_putstr_fd(char *s, int fd);

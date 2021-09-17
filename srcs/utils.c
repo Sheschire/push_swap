@@ -12,6 +12,12 @@
 
 #include "../includes/push_swap.h"
 
+void	_err(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(0);
+}
+
 int    check_argv(int ac, char **av)
 {
 	int i;
@@ -38,12 +44,6 @@ int    check_argv(int ac, char **av)
 				return (0);
 	}
 	return (1);
-}
-
-void	_err(void)
-{
-	ft_putstr_fd("Error\n", 2);
-	exit(0);
 }
 
 void	fill_a(t_stack **a, char **av)
@@ -74,34 +74,27 @@ int	get_bulksize(int ac)
 	return (bulk_size);
 }
 
-void	print_stacks(t_stack **a, t_stack **b, int n)
+int		is_sorted(t_stack **a, t_stack **b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
+	t_stack *iter;
 
-	tmp = 0;
-	if (n == 1 || n == 3)
+	tmp = *a;
+	if (*a != NULL && *b == NULL)
 	{
 		tmp = *a;
-		printf("A\n_\n\n")	;
-		while (tmp)
-		{
-			printf("%d      index : %d\n", tmp->v, tmp->pos);
-			tmp = tmp->n;
-		}
-		printf("_\n");
-		if (n == 3)
-			printf("\n---------------------------------------\n\n");
+	 	while (tmp != NULL)
+	 	{
+	 		iter = tmp->n;
+	 		while (iter != NULL)
+	 		{
+	 			if (iter->v < tmp->v)
+	 				return (0);
+	 			iter = iter->n;
+	 		}
+	 		tmp = tmp->n;
+	 	}
+		return (1);
 	}
-	if (n == 2 || n == 3)
-	{
-		tmp = *b;
-		printf("B\n_\n\n")	;
-		while (tmp)
-		{
-			if (tmp->v)
-				printf("%d      index : %d\n", tmp->v, tmp->pos);
-			tmp = tmp->n;
-		}
-		printf("_\n");
-	}
+	return (0);
 }

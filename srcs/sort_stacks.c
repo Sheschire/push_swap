@@ -31,12 +31,63 @@ void	sort_three(t_stack **a)
 	else if (top < mid && top < bot && mid > bot)
 	{
 		swap(a, "sa");
-		rotate(a, "rra");
+		rotate(a, "ra");
 	}
 	else if (top > mid && top > bot && mid < bot)
 		rotate(a, "ra");
 	else if (top < mid && top > bot && mid > bot)
 		reverse_rotate(a, "rra");
+}
+
+int		is_sorted_reverse(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp;
+	t_stack *iter;
+
+	tmp = *a;
+	if (*a != NULL && *b == NULL)
+	{
+		tmp = *a;
+	 	while (tmp != NULL)
+	 	{
+	 		iter = tmp->n;
+	 		while (iter != NULL)
+	 		{
+	 			if (iter->v > tmp->v)
+	 				return (0);
+	 			iter = iter->n;
+	 		}
+	 		tmp = tmp->n;
+	 	}
+		return (1);
+	}
+	return (0);
+}
+
+void	handle_exception(t_stack **a, t_stack **b, int ac)
+{
+	int	tab[5];
+	int	i;
+
+	i = 0;
+	tab[0] = (*a)->pos;
+	tab[1] = (*a)->n->pos;
+	tab[2] = (*a)->n->n->pos;
+	tab[3] = (*a)->n->n->n->pos;
+	if ((tab[0] < tab[1] && tab[0] < tab[2] && tab[0] > tab[3] \
+	&& tab[0] > tab[4] && tab[1] > tab[2] && tab[1] > tab[3] \
+	&& tab[1] > tab[4] && tab[2] > tab[3] && tab[2] > tab[4] \
+	&& tab[3] > tab[4]) || is_sorted_reverse(a, b))
+	{
+		reverse_rotate(a, "rra");
+		push(a, b, "pb");
+		reverse_rotate(a, "rra");
+		push(a, b, "pb");
+		sort_three(a);
+		push(b, a, "pa");
+		push(b, a, "pa");
+	}
+
 }
 
 void	sort_four_five(t_stack **a, t_stack **b, int ac)
@@ -48,10 +99,14 @@ void	sort_four_five(t_stack **a, t_stack **b, int ac)
 	if (ac == 4)
 		push_limit = 1;
 	min_in_stack = 0;
+	if (ac == 5)
+		handle_exception(a, b, ac);
 	while (min_in_stack < push_limit)
 	{
 		while ((*a)->pos != min_in_stack)
 			rotate(a, "ra");
+		if (is_sorted(a, b))
+			return ;
 		if ((*a)->pos == min_in_stack)
 		{
 			push(a, b, "pb");
