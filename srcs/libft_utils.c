@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:33:14 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/17 16:19:05 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:35:57 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_atoi(const char *str)
 		nb = nb * 10 + (*str - '0');
 		str++;
 	}
-	if (nb > INT_MAX)
+	if (nb > INT_MAX || nb < INT_MIN)
 		return (0);
 	return ((int)nb * minus);
 }
