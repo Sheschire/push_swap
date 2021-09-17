@@ -6,13 +6,13 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 13:42:47 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/10 10:56:51 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:19:40 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack *newnode(int v, int pos)
+t_stack	*newnode(int v, int pos)
 {
 	t_stack	*new;
 
@@ -64,7 +64,7 @@ t_stack	*getlast(t_stack *s)
 void	free_stack(t_stack **s)
 {
 	t_stack	*tmp;
-	t_stack *copy;
+	t_stack	*copy;
 
 	if (!s)
 		return ;

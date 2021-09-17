@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:11:18 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/10 13:52:27 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:18:05 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	rotate_push_to_a(t_stack **a, t_stack **b, int dist, int dir)
 
 void	copy_stack(t_stack **copy, t_stack **src)
 {
-	t_stack *tmp;
-	t_stack *node;
+	t_stack	*tmp;
+	t_stack	*node;
 
 	tmp = *src;
 	while (tmp)
@@ -58,7 +58,7 @@ void	reverse_stack(t_stack **rev, t_stack **a)
 {
 	t_stack	*copy;
 	t_stack	*tmp;
-	
+
 	copy = 0;
 	copy_stack(&copy, a);
 	while (copy)

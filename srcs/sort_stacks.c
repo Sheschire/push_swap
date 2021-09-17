@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 14:54:28 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/08 14:02:58 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:27:17 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,26 @@ void	sort_three(t_stack **a)
 		reverse_rotate(a, "rra");
 }
 
-int		is_sorted_reverse(t_stack **a, t_stack **b)
+int	is_sorted_reverse(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
-	t_stack *iter;
+	t_stack	*iter;
 
 	tmp = *a;
 	if (*a != NULL && *b == NULL)
 	{
 		tmp = *a;
-	 	while (tmp != NULL)
-	 	{
-	 		iter = tmp->n;
-	 		while (iter != NULL)
-	 		{
-	 			if (iter->v > tmp->v)
-	 				return (0);
-	 			iter = iter->n;
-	 		}
-	 		tmp = tmp->n;
-	 	}
+		while (tmp != NULL)
+		{
+			iter = tmp->n;
+			while (iter != NULL)
+			{
+				if (iter->v > tmp->v)
+					return (0);
+				iter = iter->n;
+			}
+			tmp = tmp->n;
+		}
 		return (1);
 	}
 	return (0);
@@ -87,7 +87,6 @@ void	handle_exception(t_stack **a, t_stack **b, int ac)
 		push(b, a, "pa");
 		push(b, a, "pa");
 	}
-
 }
 
 void	sort_four_five(t_stack **a, t_stack **b, int ac)
@@ -119,7 +118,7 @@ void	sort_four_five(t_stack **a, t_stack **b, int ac)
 		push(b, a, "pa");
 }
 
-void    sort_stacks(t_stack **a, t_stack **b, int ac)
+void	sort_stacks(t_stack **a, t_stack **b, int ac)
 {
 	if (ac == 2)
 		if ((*a)->v > (*a)->n->v)

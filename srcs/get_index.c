@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:42:13 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/11 02:47:01 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:18:52 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	sort_int_tab(int *tab, int size)
 	}
 }
 
-int		*create_sorted_tab(char **av, int ac)
+int	*create_sorted_tab(char **av, int ac)
 {
 	int	*tab;
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	j = -1;
 	tab = (int *)malloc(sizeof(int) * ac);
@@ -51,9 +51,9 @@ int		*create_sorted_tab(char **av, int ac)
 
 void	update_stack_index(t_stack **a, char **av, int ac)
 {
-	int	*tab;
-	int	i;
-	t_stack *tmp;
+	int		*tab;
+	int		i;
+	t_stack	*tmp;
 
 	tmp = *a;
 	i = 0;

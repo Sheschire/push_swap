@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:49:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/10 14:41:30 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:14:27 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include <unistd.h>
 # include <limits.h>
 
-typedef struct  		s_node
+typedef struct s_node
 {
-	int					v;
-	int					pos;
-	struct s_node		*n;
-}						t_stack;
+	int				v;
+	int				pos;
+	struct s_node	*n;
+}					t_stack;
 
-typedef struct			s_bigsort
+typedef struct s_bigsort
 {
 	int					bulk_size;
 	int					bulk_begin;
@@ -67,15 +67,13 @@ void	copy_stack(t_stack **copy, t_stack **src);
 
 // MOVES
 void	swap(t_stack **s, char *move);
-void	ss(t_stack **a, t_stack **b);
 void	push(t_stack **src, t_stack **dst, char *move);
 void	rotate(t_stack **s, char *move);
 void	rr(t_stack **a, t_stack **b);
-void    reverse_rotate(t_stack **s, char *move);
-void    rrr(t_stack **a, t_stack **b);
+void	reverse_rotate(t_stack **s, char *move);
 
 // ALGO
-void    sort_stacks(t_stack **a, t_stack **b, int ac);
+void	sort_stacks(t_stack **a, t_stack **b, int ac);
 void	big_sort(t_stack **a, t_stack **b, int ac);
 void	sort_three(t_stack **a);
 

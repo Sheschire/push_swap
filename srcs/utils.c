@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/11 02:56:08 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:29:00 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	_err(void)
 	exit(0);
 }
 
-int    check_argv(int ac, char **av)
+int	check_argv(int ac, char **av)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	if (ac == 1)
 		exit(0);
@@ -49,7 +49,7 @@ int    check_argv(int ac, char **av)
 void	fill_a(t_stack **a, char **av)
 {
 	int		i;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	i = 0;
 	while (av[++i])
@@ -74,26 +74,26 @@ int	get_bulksize(int ac)
 	return (bulk_size);
 }
 
-int		is_sorted(t_stack **a, t_stack **b)
+int	is_sorted(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
-	t_stack *iter;
+	t_stack	*iter;
 
 	tmp = *a;
 	if (*a != NULL && *b == NULL)
 	{
 		tmp = *a;
-	 	while (tmp != NULL)
-	 	{
-	 		iter = tmp->n;
-	 		while (iter != NULL)
-	 		{
-	 			if (iter->v < tmp->v)
-	 				return (0);
-	 			iter = iter->n;
-	 		}
-	 		tmp = tmp->n;
-	 	}
+		while (tmp != NULL)
+		{
+			iter = tmp->n;
+			while (iter != NULL)
+			{
+				if (iter->v < tmp->v)
+					return (0);
+				iter = iter->n;
+			}
+			tmp = tmp->n;
+		}
 		return (1);
 	}
 	return (0);

@@ -6,17 +6,17 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 12:58:07 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/09/10 15:30:35 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:17:32 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		check_bulk_range(t_stack **a, int start, int end)
+int	check_bulk_range(t_stack **a, int start, int end)
 {
 	t_stack	*tmp;
-	int	i;
-	
+	int		i;
+
 	tmp = *a;
 	i = 0;
 	while (tmp)
@@ -29,11 +29,11 @@ int		check_bulk_range(t_stack **a, int start, int end)
 	return (-1);
 }
 
-int		find_biggest(t_stack **s, int biggest)
+int	find_biggest(t_stack **s, int biggest)
 {
 	t_stack	*tmp;
-	int	dist;
-	
+	int		dist;
+
 	tmp = *s;
 	dist = 0;
 	while (tmp)
@@ -55,20 +55,22 @@ void	push_bulks_in_b(t_stack **a, t_stack **b, t_bigsort *bs, t_stack **rev)
 		while (bs->dist_up != -1 && bs->dist_down != -1)
 		{
 			reverse_stack(rev, a);
-	 		bs->dist_up = check_bulk_range(a, bs->bulk_begin, bs->bulk_end);
+			bs->dist_up = check_bulk_range(a, bs->bulk_begin, bs->bulk_end);
 			bs->dist_down = check_bulk_range(rev, bs->bulk_begin, bs->bulk_end);
-	 		if (bs->dist_up <= bs->dist_down && bs->dist_down != -1 && bs->dist_up != -1)
-	 			rotate_push_to_b(a, b, bs->dist_up, 1);
-	 		if (bs->dist_up > bs->dist_down && bs->dist_down != -1 && bs->dist_up != -1)
-	 			rotate_push_to_b(a, b, bs->dist_down, 0);
+			if (bs->dist_up <= bs->dist_down \
+			&& bs->dist_down != -1 && bs->dist_up != -1)
+				rotate_push_to_b(a, b, bs->dist_up, 1);
+			if (bs->dist_up > bs->dist_down \
+			&& bs->dist_down != -1 && bs->dist_up != -1)
+				rotate_push_to_b(a, b, bs->dist_down, 0);
 			free_stack(rev);
 		}
-		bs->bulk_begin+= bs->bulk_size;
-		bs->bulk_end+= bs->bulk_size;
+		bs->bulk_begin += bs->bulk_size;
+		bs->bulk_end += bs->bulk_size;
 	}
 }
 
-void	push_biggest_in_a(t_stack **a, t_stack **b, t_bigsort *bs, t_stack **rev)
+void	biggest_in_a(t_stack **a, t_stack **b, t_bigsort *bs, t_stack **rev)
 {
 	int	biggest;
 
@@ -98,5 +100,5 @@ void	big_sort(t_stack **a, t_stack **b, int ac)
 	rev = 0;
 	init_bs(&bs, ac);
 	push_bulks_in_b(a, b, &bs, &rev);
-	push_biggest_in_a(a, b, &bs, &rev);
+	biggest_in_a(a, b, &bs, &rev);
 }
